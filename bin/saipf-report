@@ -1,0 +1,114 @@
+#!/usr/bin/perl
+
+use strict;
+use Redis;
+use Math::Round qw(nearest round);
+
+my ($file, @data, %record, $t, $r, $d, %config, $redis, $time, %re);
+
+$|++;
+
+sub trim {
+	my $str = shift;
+	$str =~ s/(?:^[\r\n\t ]+)|(?:[\r\0]+)|(?:[\r\n\t ]+$)//g;
+	$str =~ s/^['"]//;
+	$str =~ s/[, \t]$//g;
+	$str =~ s/['"]$//;
+	return $str;
+}
+
+sub find_bin {
+        my ($bin, @path, $p);
+        $bin = shift;
+        @path = ('/bin','/sbin','/usr/bin','/usr/sbin','/usr/local/bin','/usr/local/sbin');
+        foreach $p (@path){
+                return $p.'/'.$bin if (-e $p.'/'.$bin);
+        }
+}
+
+foreach $file (@INC){
+	if(-e $file.'/Mail/SpamAssassin/Plugin/IPFilter.pm'){
+		open(FILE, $file.'/Mail/SpamAssassin/Plugin/IPFilter.pm') || die "Could not open $file/Mail/SpamAssassin/Plugin/IPFilter.pm ($!)\n";
+		$d =$r = do { local $/; <FILE> };
+		close(FILE);
+		$r =~ s/^.*?sub[ \t]+compile\_regex//ism;
+                $r =~ s/\);.*$//sm;
+		map{ index($_,'=>')>0 && (@data=split('=>', $_)) && 1<@data && $data[1]=~/^[ \t'"]*qr\/(.*)\/['" \t,]*$/ && ($re{trim($data[0])}=qr/$1/)} split("\n", trim($r));
+		$d =~ s/^.*?self->\{['"]?conf['"]?\}[ \t]*=[ \t]*{//ism;
+		$d =~ s/\};.*$//sm;
+		map{ (@data=split('=>', $_)) && 1<@data && ($config{trim($data[0])}=trim($data[1]))} split("\n", trim($d));
+		last;
+	}
+}
+die("Mail::SpamAssassin::Contrib::Plugin::IPFilter not installed\n") if (1>keys %config); 
+
+push @ARGV, '/etc/mail/spamassassin/local.cf' if(1>@ARGV);
+foreach $file (@ARGV){
+	$file = trim($file);
+	if(-e $file){
+		if(open(FILE, $file)){
+			@data = <FILE>;
+			close(FILE);
+			map{$_=~/^[\t ]*ipfilter\_([^ \t]+)[ \t][ \t]*([^\n]+)(?:\n|$)/ && ($config{trim($1)}=trim($2))} @data;
+		}
+	}
+}
+
+$redis = length($config{'redis_auth'})>0 ? Redis->new(server => $config{'redis_host'}.':'.$config{'redis_port'}, password => $config{'redis_auth'}) : Redis->new(server => $config{'redis_host'}.':'.$config{'redis_port'});
+
+$time = time();
+print "\n".localtime()."\n";
+@data = split(':', $redis->get($config{'redis_key_prefix'}));
+print 'Current cycle: '.$data[1].' ('.nearest(0.01, ($time-$data[0])/60).'m)'."\n";
+printf( '%-20.20s %-6.6s %-6.6s %-4.4s %-30.30s (%6.6s)', 'HOST', 'AVG', 'TOT', 'AMT', 'EXTRA', 'TIME');
+print "\n";
+
+@data = @{[$redis->keys($config{'redis_key_prefix'}.'-*')]};
+foreach $d (sort @data){
+	$r = $redis->get($d);
+
+	%record = $r =~ $re{'record'} ?  ('avg'=>$1, 'total'=>$2, 'amt'=>$3, 'time'=>$4, 'extra'=>$5) : ('avg'=>0, 'total'=>0, 'amt'=>0, 'time'=> ($r=~/^[0-9]+$/?$r:0), 'extra'=>$r);
+	$t = $time - $record{'time'};
+	if($t<60){
+		$t.='s';
+	}elsif($t<3600){
+		$t = nearest(0.01,$t/60).'m'; 
+	}elsif($t<86400){
+		$t = nearest(0.01,$t/3600).'h';
+	}else{
+		$t = nearest(0.01, $t/86400).'d';
+	}
+	
+	$d =~ s/^$config{'redis_key_prefix'}-//;
+	printf( '%-20.20s %-6.6s %-6.6s %-4.4s %-30.30s (%6.6s @ %-11.11s)', $d, $record{'avg'}, $record{'total'}, $record{'amt'}, $record{'extra'}, $t, $record{'time'}  );
+	print "\n";
+}
+print "--\nExpiration:\n";
+@data = @{[$redis->keys($config{'redis_key_prefix'}.';expires*')]};
+foreach $d (sort @data){
+        $r = $redis->get($d);
+	$t = abs($time - int($r));
+        if($t<60){
+                $t.='s';
+        }elsif($t<3600){
+                $t = nearest(0.01,$t/60).'m';
+        }elsif($t<86400){
+                $t = nearest(0.01,$t/3600).'h';
+        }else{
+                $t = nearest(0.01, $t/86400).'d';
+        }
+	print "\t$d => $t\n";
+}
+print "--\nNetworks:\n";
+@data = @{[$redis->keys($config{'redis_key_prefix'}.';network*')]};
+foreach $d (sort @data){
+        $r = $redis->get($d);
+        print "\t$d => $r\n";
+}
+$redis->quit;
+print "--\nFilter:\n";
+$r = find_bin('iptables').' -L '.$config{'filter_name'}.' -n -v -x';
+print "$r\n";
+print `$r`;
+print "\n----------------------------------------------------------------------------------------------\n";
+
