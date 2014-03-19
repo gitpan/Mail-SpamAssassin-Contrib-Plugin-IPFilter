@@ -845,7 +845,7 @@ Mail::SpamAssassin::Contrib::Plugin::IPFilter - Blocks bad MTA behavior using IP
 
 =head1 VERSION
 
-version 0.92
+0.92
 
 =head1 SYNOPSIS
 
@@ -888,10 +888,6 @@ Responsible, well-known email hosts (common_hosts) are given special treatment t
 IPV6 support is experimental. Future versions may include a database shared by nodes participating in a system similar to a decaying blockchain.
 
 The following options may be used in site-wide (local.cf) configuration files to customize operation:
-
-=head1 NAME
-
-Mail::SpamAssassin::Contrib::Plugin::IPFilter - Blocks bad MTA behavior using IPTables and Redis.
 
 =begin html
 
@@ -956,20 +952,8 @@ Mail::SpamAssassin::Contrib::Plugin::IPFilter - Blocks bad MTA behavior using IP
 
 =head1 COPYRIGHT
 
-I<Copyright E<copy> 2014 - Tamer Rizk, Inficron Inc.>
+I<Copyright E<copy> 2014 Tamer Rizk, Inficron Inc.>
 
 This is free, open source software, licensed under the L<Revised BSD License|http://opensource.org/licenses/BSD-3-Clause>. Please feel free to use and distribute it accordingly.
-
-=head1 AUTHOR
-
-Tamer Rizk <foss@inficron.com>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is Copyright (c) 2014 by Tamer Rizk.
-
-This is free software, licensed under:
-
-  The (three-clause) BSD License
 
 =cut

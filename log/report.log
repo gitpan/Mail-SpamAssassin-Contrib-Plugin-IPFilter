@@ -10999,3 +10999,275 @@ Chain spamipfilter (1 references)
       57     3420 DROP       all  --  eth+   *       192.64.236.49        0.0.0.0/0           /* expires=1395625750 */ 
 
 ----------------------------------------------------------------------------------------------
+
+Wed Mar 19 07:10:01 2014
+Current cycle: 8 (124.28m)
+HOST                 AVG    TOT    AMT  EXTRA                          (  TIME)
+173.44.173.212       11.8   11.8   1    YnBfaGVhbHRo@firehatch.eu      (14.98h @ 1395184276 )
+174.46.206.200       7.7    7.7    1    d2hlZWxob3VzZV81NTRmYTZjNTE3OD ( 2.07h @ 1395230744 )
+192.228.96.36        21.23  63.69  3    MTI4MzgtNTYyOTMwMzg5OC01MDAtbm ( 9.94h @ 1395202415 )
+192.64.236.49        16.88  84.42  5    ZGVsaXZlcnk=@mx.sailthru.com   ( 5.25m @ 1395237886 )
+198.210.34.184       24.39  97.57  4    MTAwNTctNjE4ODg4OTUzNi03NjEtbm (  8.9h @ 1395206168 )
+199.96.158.0         17.27  34.54  2    dGV4dHJpcHBlcnMuY29tLjE3MjcwMD ( 48.2m @ 1395235309 )
+204.13.96.18         10.74  10.74  1    Y3VzdG9tZXJzZXJ2aWNl@em.pryor. (21.85h @ 1395159526 )
+206.165.243.32       12.04  48.14  4    bWVtYmVyc2VydmljZXM=@mail.jdat (38.13m @ 1395235913 )
+208.75.123.133       9.75   9.75   1    YXJiYW41NmVsc3VxZHpncXRleWJ5MX ( 1.64h @ 1395232292 )
+209.73.245.24        6      6      1    c3VwcG9ydD1wdXJlZ2FyY2luaWFjYW ( 5.02h @ 1395220133 )
+23.236.154.194       17.24  17.24  1    MTI4MzYtNTYyOTI3MzkxMi00OTktbm (10.92h @ 1395198895 )
+23.250.80.212        20.33  60.99  3    MTI4MTgtNTYyOTI3MzkxMi0xNDItbm (14.25h @ 1395186897 )
+31.7.61.180          22.08  66.23  3    MTAwNTMtNjE4ODkxOTUyNi03NDItbm ( 13.2h @ 1395190695 )
+38.100.110.249       12.2   12.2   1    Ym91bmNl@samplescloud.com      ( 14.2h @ 1395187084 )
+46.236.37.80         9.87   29.62  3    bWFpbC5xZ29rc2Zid2VxcG9sZnFoZm (17.62m @ 1395237144 )
+46.248.181.132       18.38  36.76  2    MTAwNDU9NjkwYmY3YmEtMjI5MC00MD ( 15.8m @ 1395237253 )
+64.132.109.55        10.64  10.64  1    Ym91bmNlcysxMzk4NDU2LjIxMTc4OT (20.41h @ 1395164711 )
+66.227.62.0          18.23  72.92  4    YWFhb3QxY284eGVvc183YzRzeDlrOG (10.57m @ 1395237567 )
+67.221.174.146       11.4   11.4   1    Ym91bmNl@taggedmail.com        (40.32m @ 1395235782 )
+69.175.56.8          19.55  39.1   2    eW91cmJldHRlcnRvbW9ycm93@danma (  1.7h @ 1395232097 )
+69.60.9.142          12.4   12.4   1    Ym91bmNlcy0zNzUxNy01MDQyMzY1Ng (16.35h @ 1395179325 )
+76.8.62.20           18.43  18.43  1    MTMwOT0zMzY5NzRlZS0zNjg0LTQ4NW (17.53h @ 1395175094 )
+77.81.110.158        26.25  26.25  1    Y29uc3VtZXJkYXRhbGlzdHM=@gerty ( 8.69h @ 1395206919 )
+78.136.9.120         7.08   21.25  3    cXVlc3Rpb25z@i-say.com         ( 7.26h @ 1395212055 )
+89.233.106.183       15.25  15.25  1    YXBwbHlmb3JmdW5kaW5n@bantan.co ( 3.91h @ 1395224120 )
+--
+Expiration:
+	sa_ipf;expires-192.228.96.36 => 3.58d
+	sa_ipf;expires-192.64.236.49 => 5.6d
+	sa_ipf;expires-198.210.34.184 => 3.52d
+	sa_ipf;expires-206.165.243.32 => 16.82h
+	sa_ipf;expires-23.250.80.212 => 2.32d
+	sa_ipf;expires-31.7.61.180 => 3.22d
+	sa_ipf;expires-46.236.37.80 => 16.05h
+	sa_ipf;expires-66.227.62.0 => 2.79d
+	sa_ipf;expires-78.136.9.120 => 3.28h
+--
+Networks:
+	sa_ipf;network-192.228.96.36 => 30
+	sa_ipf;network-198.210.34.184 => 29
+	sa_ipf;network-199.96.158.0 => 27
+	sa_ipf;network-206.165.243.32 => 29
+	sa_ipf;network-23.250.80.212 => 30
+	sa_ipf;network-31.7.61.180 => 30
+	sa_ipf;network-46.236.37.80 => 28
+	sa_ipf;network-46.248.181.132 => 30
+	sa_ipf;network-66.227.62.0 => 24
+	sa_ipf;network-69.175.56.8 => 29
+--
+Filter:
+/sbin/iptables -L spamipfilter -n -v -x
+Chain spamipfilter (1 references)
+    pkts      bytes target     prot opt in     out     source               destination         
+
+----------------------------------------------------------------------------------------------
+
+Wed Mar 19 08:10:01 2014
+Current cycle: 9 (56.6m)
+HOST                 AVG    TOT    AMT  EXTRA                          (  TIME)
+173.44.173.212       11.8   11.8   1    YnBfaGVhbHRo@firehatch.eu      (15.98h @ 1395184276 )
+174.46.206.200       7.7    7.7    1    d2hlZWxob3VzZV81NTRmYTZjNTE3OD ( 3.07h @ 1395230744 )
+192.228.96.36        21.23  63.69  3    MTI4MzgtNTYyOTMwMzg5OC01MDAtbm (10.94h @ 1395202415 )
+192.64.236.49        16.88  84.42  5    ZGVsaXZlcnk=@mx.sailthru.com   ( 1.09h @ 1395237886 )
+198.210.34.184       24.39  97.57  4    MTAwNTctNjE4ODg4OTUzNi03NjEtbm (  9.9h @ 1395206168 )
+199.96.158.0         17.27  34.54  2    dGV4dHJpcHBlcnMuY29tLjE3MjcwMD (  1.8h @ 1395235309 )
+204.13.96.18         10.74  10.74  1    Y3VzdG9tZXJzZXJ2aWNl@em.pryor. (22.85h @ 1395159526 )
+206.165.243.32       12.04  48.14  4    bWVtYmVyc2VydmljZXM=@mail.jdat ( 1.64h @ 1395235913 )
+208.75.123.133       9.75   9.75   1    YXJiYW41NmVsc3VxZHpncXRleWJ5MX ( 2.64h @ 1395232292 )
+209.73.245.24        6      6      1    c3VwcG9ydD1wdXJlZ2FyY2luaWFjYW ( 6.02h @ 1395220133 )
+23.236.154.194       17.24  17.24  1    MTI4MzYtNTYyOTI3MzkxMi00OTktbm (11.92h @ 1395198895 )
+23.250.80.212        20.33  60.99  3    MTI4MTgtNTYyOTI3MzkxMi0xNDItbm (15.25h @ 1395186897 )
+31.7.61.180          22.08  66.23  3    MTAwNTMtNjE4ODkxOTUyNi03NDItbm ( 14.2h @ 1395190695 )
+38.100.110.249       12.2   12.2   1    Ym91bmNl@samplescloud.com      ( 15.2h @ 1395187084 )
+46.236.37.80         9.87   29.62  3    bWFpbC5xZ29rc2Zid2VxcG9sZnFoZm ( 1.29h @ 1395237144 )
+46.248.181.132       18.38  36.76  2    MTAwNDU9NjkwYmY3YmEtMjI5MC00MD ( 1.26h @ 1395237253 )
+63.236.76.225        10.6   10.6   1    Ym8tYjYxemF4MGJmYndkNzBhdXljZX (52.35m @ 1395238660 )
+64.132.109.55        10.64  10.64  1    Ym91bmNlcysxMzk4NDU2LjIxMTc4OT (21.41h @ 1395164711 )
+66.227.62.0          20.38  101.91 5    YWFhbDdvNjExbDdiejU5b3Uwc21rOD ( 56.6m @ 1395238405 )
+67.221.174.146       11.4   11.4   1    Ym91bmNl@taggedmail.com        ( 1.67h @ 1395235782 )
+69.175.56.8          19.55  39.1   2    eW91cmJldHRlcnRvbW9ycm93@danma (  2.7h @ 1395232097 )
+69.60.9.142          12.4   12.4   1    Ym91bmNlcy0zNzUxNy01MDQyMzY1Ng (17.35h @ 1395179325 )
+71.127.212.112       8.5    8.5    1    bmVk@textrippers.com           (47.18m @ 1395238970 )
+76.8.62.20           18.43  18.43  1    MTMwOT0zMzY5NzRlZS0zNjg0LTQ4NW (18.53h @ 1395175094 )
+77.81.110.158        26.25  26.25  1    Y29uc3VtZXJkYXRhbGlzdHM=@gerty ( 9.69h @ 1395206919 )
+78.136.9.120         7.08   21.25  3    cXVlc3Rpb25z@i-say.com         ( 8.26h @ 1395212055 )
+89.233.106.183       15.25  15.25  1    YXBwbHlmb3JmdW5kaW5n@bantan.co ( 4.91h @ 1395224120 )
+--
+Expiration:
+	sa_ipf;expires-192.228.96.36 => 3.54d
+	sa_ipf;expires-192.64.236.49 => 5.56d
+	sa_ipf;expires-198.210.34.184 => 3.47d
+	sa_ipf;expires-206.165.243.32 => 15.82h
+	sa_ipf;expires-23.250.80.212 => 2.28d
+	sa_ipf;expires-31.7.61.180 => 3.18d
+	sa_ipf;expires-46.236.37.80 => 15.05h
+	sa_ipf;expires-66.227.62.0 => 6.29d
+	sa_ipf;expires-78.136.9.120 => 2.28h
+--
+Networks:
+	sa_ipf;network-192.228.96.36 => 30
+	sa_ipf;network-198.210.34.184 => 29
+	sa_ipf;network-199.96.158.0 => 27
+	sa_ipf;network-206.165.243.32 => 29
+	sa_ipf;network-23.250.80.212 => 30
+	sa_ipf;network-31.7.61.180 => 30
+	sa_ipf;network-46.236.37.80 => 28
+	sa_ipf;network-46.248.181.132 => 30
+	sa_ipf;network-66.227.62.0 => 24
+	sa_ipf;network-69.175.56.8 => 29
+--
+Filter:
+/sbin/iptables -L spamipfilter -n -v -x
+Chain spamipfilter (1 references)
+    pkts      bytes target     prot opt in     out     source               destination         
+      11      600 DROP       all  --  eth+   *       46.236.37.80/28      0.0.0.0/0           /* expires=1395295967 */ 
+       0        0 DROP       all  --  eth+   *       66.227.62.0/24       0.0.0.0/0           /* expires=1395785469 */ 
+       0        0 DROP       all  --  eth+   *       206.165.243.32/29    0.0.0.0/0           /* expires=1395298742 */ 
+       0        0 DROP       all  --  eth+   *       31.7.61.180/30       0.0.0.0/0           /* expires=1395516828 */ 
+       0        0 DROP       all  --  eth+   *       78.136.9.120         0.0.0.0/0           /* expires=1395250019 */ 
+       0        0 DROP       all  --  eth+   *       198.210.34.184/29    0.0.0.0/0           /* expires=1395541956 */ 
+       0        0 DROP       all  --  eth+   *       23.250.80.212/30     0.0.0.0/0           /* expires=1395438717 */ 
+       3      180 DROP       all  --  eth+   *       192.64.236.49        0.0.0.0/0           /* expires=1395722338 */ 
+       0        0 DROP       all  --  eth+   *       192.228.96.36/30     0.0.0.0/0           /* expires=1395547841 */ 
+
+----------------------------------------------------------------------------------------------
+
+Wed Mar 19 09:10:02 2014
+Current cycle: 9 (116.62m)
+HOST                 AVG    TOT    AMT  EXTRA                          (  TIME)
+12.130.136.68        7.9    7.9    1    cXVpay4zMTEw@envfrm.rsys2.com  (35.88m @ 1395243249 )
+173.44.173.212       11.8   11.8   1    YnBfaGVhbHRo@firehatch.eu      (16.98h @ 1395184276 )
+174.46.206.200       7.7    7.7    1    d2hlZWxob3VzZV81NTRmYTZjNTE3OD ( 4.07h @ 1395230744 )
+192.228.96.36        21.23  63.69  3    MTI4MzgtNTYyOTMwMzg5OC01MDAtbm (11.94h @ 1395202415 )
+192.64.236.49        16.88  84.42  5    ZGVsaXZlcnk=@mx.sailthru.com   ( 2.09h @ 1395237886 )
+198.210.34.184       24.39  97.57  4    MTAwNTctNjE4ODg4OTUzNi03NjEtbm ( 10.9h @ 1395206168 )
+199.96.158.0         17.27  34.54  2    dGV4dHJpcHBlcnMuY29tLjE3MjcwMD (  2.8h @ 1395235309 )
+204.13.96.18         10.74  10.74  1    Y3VzdG9tZXJzZXJ2aWNl@em.pryor. (23.85h @ 1395159526 )
+206.165.243.32       12.04  48.14  4    bWVtYmVyc2VydmljZXM=@mail.jdat ( 2.64h @ 1395235913 )
+208.75.123.133       9.75   9.75   1    YXJiYW41NmVsc3VxZHpncXRleWJ5MX ( 3.64h @ 1395232292 )
+209.73.245.24        6      6      1    c3VwcG9ydD1wdXJlZ2FyY2luaWFjYW ( 7.02h @ 1395220133 )
+23.236.154.194       17.24  17.24  1    MTI4MzYtNTYyOTI3MzkxMi00OTktbm (12.92h @ 1395198895 )
+23.250.80.212        20.33  60.99  3    MTI4MTgtNTYyOTI3MzkxMi0xNDItbm (16.25h @ 1395186897 )
+31.7.61.180          22.08  66.23  3    MTAwNTMtNjE4ODkxOTUyNi03NDItbm ( 15.2h @ 1395190695 )
+38.100.110.249       12.2   12.2   1    Ym91bmNl@samplescloud.com      ( 16.2h @ 1395187084 )
+46.236.37.80         9.87   29.62  3    bWFpbC5xZ29rc2Zid2VxcG9sZnFoZm ( 2.29h @ 1395237144 )
+46.248.181.132       18.38  36.76  2    MTAwNDU9NjkwYmY3YmEtMjI5MC00MD ( 2.26h @ 1395237253 )
+63.236.76.225        10.6   10.6   1    Ym8tYjYxemF4MGJmYndkNzBhdXljZX ( 1.87h @ 1395238660 )
+64.132.109.55        10.64  10.64  1    Ym91bmNlcysxMzk4NDU2LjIxMTc4OT (22.41h @ 1395164711 )
+66.227.62.0          20.38  101.91 5    YWFhbDdvNjExbDdiejU5b3Uwc21rOD ( 1.94h @ 1395238405 )
+67.221.174.146       11.4   11.4   1    Ym91bmNl@taggedmail.com        ( 2.67h @ 1395235782 )
+69.175.56.8          19.55  39.1   2    eW91cmJldHRlcnRvbW9ycm93@danma (  3.7h @ 1395232097 )
+69.60.9.142          12.4   12.4   1    Ym91bmNlcy0zNzUxNy01MDQyMzY1Ng (18.35h @ 1395179325 )
+71.127.212.112       8.5    8.5    1    bmVk@textrippers.com           ( 1.79h @ 1395238970 )
+76.8.62.20           18.43  18.43  1    MTMwOT0zMzY5NzRlZS0zNjg0LTQ4NW (19.53h @ 1395175094 )
+77.81.110.158        26.25  26.25  1    Y29uc3VtZXJkYXRhbGlzdHM=@gerty (10.69h @ 1395206919 )
+78.136.9.120         7.08   21.25  3    cXVlc3Rpb25z@i-say.com         ( 9.26h @ 1395212055 )
+89.233.106.183       15.25  15.25  1    YXBwbHlmb3JmdW5kaW5n@bantan.co ( 5.91h @ 1395224120 )
+--
+Expiration:
+	sa_ipf;expires-192.228.96.36 => 3.5d
+	sa_ipf;expires-192.64.236.49 => 5.52d
+	sa_ipf;expires-198.210.34.184 => 3.43d
+	sa_ipf;expires-206.165.243.32 => 14.82h
+	sa_ipf;expires-23.250.80.212 => 2.24d
+	sa_ipf;expires-31.7.61.180 => 3.14d
+	sa_ipf;expires-46.236.37.80 => 14.05h
+	sa_ipf;expires-66.227.62.0 => 6.25d
+	sa_ipf;expires-78.136.9.120 => 1.28h
+--
+Networks:
+	sa_ipf;network-192.228.96.36 => 30
+	sa_ipf;network-198.210.34.184 => 29
+	sa_ipf;network-199.96.158.0 => 27
+	sa_ipf;network-206.165.243.32 => 29
+	sa_ipf;network-23.250.80.212 => 30
+	sa_ipf;network-31.7.61.180 => 30
+	sa_ipf;network-46.236.37.80 => 28
+	sa_ipf;network-46.248.181.132 => 30
+	sa_ipf;network-66.227.62.0 => 24
+	sa_ipf;network-69.175.56.8 => 29
+--
+Filter:
+/sbin/iptables -L spamipfilter -n -v -x
+Chain spamipfilter (1 references)
+    pkts      bytes target     prot opt in     out     source               destination         
+      11      600 DROP       all  --  eth+   *       46.236.37.80/28      0.0.0.0/0           /* expires=1395295967 */ 
+       0        0 DROP       all  --  eth+   *       66.227.62.0/24       0.0.0.0/0           /* expires=1395785469 */ 
+       0        0 DROP       all  --  eth+   *       206.165.243.32/29    0.0.0.0/0           /* expires=1395298742 */ 
+       0        0 DROP       all  --  eth+   *       31.7.61.180/30       0.0.0.0/0           /* expires=1395516828 */ 
+       0        0 DROP       all  --  eth+   *       78.136.9.120         0.0.0.0/0           /* expires=1395250019 */ 
+       0        0 DROP       all  --  eth+   *       198.210.34.184/29    0.0.0.0/0           /* expires=1395541956 */ 
+       0        0 DROP       all  --  eth+   *       23.250.80.212/30     0.0.0.0/0           /* expires=1395438717 */ 
+      12      720 DROP       all  --  eth+   *       192.64.236.49        0.0.0.0/0           /* expires=1395722338 */ 
+       0        0 DROP       all  --  eth+   *       192.228.96.36/30     0.0.0.0/0           /* expires=1395547841 */ 
+
+----------------------------------------------------------------------------------------------
+
+Wed Mar 19 10:10:01 2014
+Current cycle: 10 (16.17m)
+HOST                 AVG    TOT    AMT  EXTRA                          (  TIME)
+12.130.136.68        7.9    7.9    1    cXVpay4zMTEw@envfrm.rsys2.com  (  1.6h @ 1395243249 )
+173.44.173.212       11.8   11.8   1    YnBfaGVhbHRo@firehatch.eu      (17.98h @ 1395184276 )
+174.46.206.200       7.7    7.7    1    d2hlZWxob3VzZV81NTRmYTZjNTE3OD ( 5.07h @ 1395230744 )
+192.228.96.36        21.23  63.69  3    MTI4MzgtNTYyOTMwMzg5OC01MDAtbm (12.94h @ 1395202415 )
+192.64.236.49        16.88  84.42  5    ZGVsaXZlcnk=@mx.sailthru.com   ( 3.09h @ 1395237886 )
+198.210.34.184       24.39  97.57  4    MTAwNTctNjE4ODg4OTUzNi03NjEtbm ( 11.9h @ 1395206168 )
+199.96.158.0         17.27  34.54  2    dGV4dHJpcHBlcnMuY29tLjE3MjcwMD (  3.8h @ 1395235309 )
+204.13.96.18         10.74  10.74  1    Y3VzdG9tZXJzZXJ2aWNl@em.pryor. ( 1.04d @ 1395159526 )
+206.165.243.32       12.04  48.14  4    bWVtYmVyc2VydmljZXM=@mail.jdat ( 3.64h @ 1395235913 )
+208.75.123.133       9.75   9.75   1    YXJiYW41NmVsc3VxZHpncXRleWJ5MX ( 4.64h @ 1395232292 )
+209.73.245.24        6      6      1    c3VwcG9ydD1wdXJlZ2FyY2luaWFjYW ( 8.02h @ 1395220133 )
+23.236.154.194       17.24  17.24  1    MTI4MzYtNTYyOTI3MzkxMi00OTktbm (13.92h @ 1395198895 )
+23.250.80.208        20.34  81.37  4    MTI4NDEtNTYyOTI3MzkxMi0xODktbm (16.17m @ 1395248031 )
+31.7.61.180          22.08  66.23  3    MTAwNTMtNjE4ODkxOTUyNi03NDItbm ( 16.2h @ 1395190695 )
+38.100.110.249       12.2   12.2   1    Ym91bmNl@samplescloud.com      ( 17.2h @ 1395187084 )
+46.236.37.80         9.87   29.62  3    bWFpbC5xZ29rc2Zid2VxcG9sZnFoZm ( 3.29h @ 1395237144 )
+46.248.181.132       18.38  36.76  2    MTAwNDU9NjkwYmY3YmEtMjI5MC00MD ( 3.26h @ 1395237253 )
+63.236.76.225        10.6   10.6   1    Ym8tYjYxemF4MGJmYndkNzBhdXljZX ( 2.87h @ 1395238660 )
+64.132.109.55        10.64  10.64  1    Ym91bmNlcysxMzk4NDU2LjIxMTc4OT (23.41h @ 1395164711 )
+66.227.62.0          20.38  101.91 5    YWFhbDdvNjExbDdiejU5b3Uwc21rOD ( 2.94h @ 1395238405 )
+67.221.174.146       11.4   11.4   1    Ym91bmNl@taggedmail.com        ( 3.67h @ 1395235782 )
+69.175.56.8          19.55  39.1   2    eW91cmJldHRlcnRvbW9ycm93@danma (  4.7h @ 1395232097 )
+69.60.9.142          12.4   12.4   1    Ym91bmNlcy0zNzUxNy01MDQyMzY1Ng (19.35h @ 1395179325 )
+71.127.212.112       8.5    8.5    1    bmVk@textrippers.com           ( 2.79h @ 1395238970 )
+76.8.62.20           18.43  18.43  1    MTMwOT0zMzY5NzRlZS0zNjg0LTQ4NW (20.53h @ 1395175094 )
+77.81.110.158        26.25  26.25  1    Y29uc3VtZXJkYXRhbGlzdHM=@gerty (11.69h @ 1395206919 )
+78.136.9.120         7.08   21.25  3    cXVlc3Rpb25z@i-say.com         (10.26h @ 1395212055 )
+89.233.106.183       15.25  15.25  1    YXBwbHlmb3JmdW5kaW5n@bantan.co ( 6.91h @ 1395224120 )
+--
+Expiration:
+	sa_ipf;expires-192.228.96.36 => 3.46d
+	sa_ipf;expires-192.64.236.49 => 5.48d
+	sa_ipf;expires-198.210.34.184 => 3.39d
+	sa_ipf;expires-206.165.243.32 => 13.82h
+	sa_ipf;expires-23.250.80.208 => 2.95d
+	sa_ipf;expires-31.7.61.180 => 3.1d
+	sa_ipf;expires-46.236.37.80 => 13.05h
+	sa_ipf;expires-66.227.62.0 => 6.21d
+	sa_ipf;expires-78.136.9.120 => 16.97m
+--
+Networks:
+	sa_ipf;network-192.228.96.36 => 30
+	sa_ipf;network-198.210.34.184 => 29
+	sa_ipf;network-199.96.158.0 => 27
+	sa_ipf;network-206.165.243.32 => 29
+	sa_ipf;network-23.250.80.208 => 28
+	sa_ipf;network-31.7.61.180 => 30
+	sa_ipf;network-46.236.37.80 => 28
+	sa_ipf;network-46.248.181.132 => 30
+	sa_ipf;network-66.227.62.0 => 24
+	sa_ipf;network-69.175.56.8 => 29
+--
+Filter:
+/sbin/iptables -L spamipfilter -n -v -x
+Chain spamipfilter (1 references)
+    pkts      bytes target     prot opt in     out     source               destination         
+       0        0 DROP       all  --  eth+   *       23.250.80.208/28     0.0.0.0/0           /* expires=1395504156 */ 
+      18      972 DROP       all  --  eth+   *       46.236.37.80/28      0.0.0.0/0           /* expires=1395295967 */ 
+       0        0 DROP       all  --  eth+   *       66.227.62.0/24       0.0.0.0/0           /* expires=1395785469 */ 
+       5      300 DROP       all  --  eth+   *       206.165.243.32/29    0.0.0.0/0           /* expires=1395298742 */ 
+       0        0 DROP       all  --  eth+   *       31.7.61.180/30       0.0.0.0/0           /* expires=1395516828 */ 
+       0        0 DROP       all  --  eth+   *       78.136.9.120         0.0.0.0/0           /* expires=1395250019 */ 
+       0        0 DROP       all  --  eth+   *       198.210.34.184/29    0.0.0.0/0           /* expires=1395541956 */ 
+       0        0 DROP       all  --  eth+   *       23.250.80.212/30     0.0.0.0/0           /* expires=1395438717 */ 
+      15      900 DROP       all  --  eth+   *       192.64.236.49        0.0.0.0/0           /* expires=1395722338 */ 
+       0        0 DROP       all  --  eth+   *       192.228.96.36/30     0.0.0.0/0           /* expires=1395547841 */ 
+
+----------------------------------------------------------------------------------------------
