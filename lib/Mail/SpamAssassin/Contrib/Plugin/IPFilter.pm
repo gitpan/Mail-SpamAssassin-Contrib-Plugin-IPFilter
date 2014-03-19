@@ -888,65 +888,66 @@ IPV6 support is experimental. Future versions may include a database shared by n
 
 The following options may be used in site-wide (local.cf) configuration files to customize operation:
 
-B<iptables_bin>
+B<iptables_bin>E<10> 
 The path to iptables binary on your system. 
 
-B<ilter_name>
+B<filter_name>E<10> 
 The name of the chain that Mail::SpamAssassin::Contrib::Plugin::IPFilter will create to block spammers. This will also be used as the file name in /etc/cron.d/. [a-zA-Z0-9_.]
 
-B<redis_host>
+B<redis_host>E<10> 
 The ipv4 address of your Redis server.
 
-B<redis_port>
+B<redis_port>E<10> 
 The port that Redis is listening on.
 
-B<redis_auth>
+B<redis_auth>E<10> 
 The Redis password, if any.
 
-B<redis_key_prefix>
+B<redis_key_prefix>E<10> 
 The prefix for Redis keys created and used by Mail::SpamAssassin::Contrib::Plugin::IPFilter. ^[a-zA-Z0-9_.]$
 
-B<trigger_score>
+B<trigger_score>E<10> 
 The score for which Mail::SpamAssassin::Contrib::Plugin::IPFilter will process a spam message. This should be greater than the SpamAssassin required_score.
 
-B<average_score_for_rule>
-The average spam score for a host required to trigger a rule after trigger_messages>.
+B<average_score_for_rule>E<10> 
+The average spam score for a host required to trigger a rule after trigger_messages.
 
-B<trigger_messages>
+B<trigger_messages>E<10> 
 The minimum number of spam messages from a given host before a rule is triggered. 
 
-B<trigger_sensitivity>
+B<trigger_sensitivity>E<10> 
 A quantity indicator used to tune penalization for a given host based on how many spam messages were seen for that host. PF = exp(-3*trigger_sensitivity/spamhits)
 
-B<seconds_to_decay_penalty>
+B<seconds_to_decay_penalty>E<10> 
 A frequency indicator used to tune penalization for a given host based on how many spam messages were seen for that host over a time period. PF = exp((-1/10 * lastspam_delta/seconds_to_decay_penalty))
 
-B<expire_rule_seconds>
+B<expire_rule_seconds>E<10> 
 After how long will a block rule expire.
 	
-B<expires_multiplier_penalty>
+B<expires_multiplier_penalty>E<10> 
 A factor used to penalize hosts with longer rule expiration based on the spam of score of the message resulting in a rule, relative to the average spam score required to set the rule. 
 
-B<cache_decay_days>
-After how long will entries in the cache decay, assuming no spam messages are seen. Note that the cache will decay according to: cumulative_spam_score_for_host* exp(-3*lastspam_delta/cache_decay_secs)
+B<cache_decay_days>E<10> 
+After how long will entries in the cache decay, assuming no spam messages are seen. Note that the cache will decay according to: cumulative_spam_score_for_host * exp(-3*lastspam_delta/cache_decay_secs)
 
-B<common_hosts>
+B<common_hosts>E<10> 
 Hosts which should not be blacklisted via IPTables rule, and fall back to SpamAssassin blacklist.
 
-B<admin_email>
+B<admin_email>E<10> 
 The email address to send blacklist warnings from. If left unconfigured, no warnings will be sent.
 
-B<admin_message> The warning message that will be sent. Paramaters $user, $domain, $ip, $email, $recipient and $admin may be used for templatization.
+B<admin_message>E<10> 
+The warning message that will be sent. Paramaters $user, $domain, $ip, $email, $recipient and $admin may be used for templatization.
 
-B<whitelist>
+B<whitelist>E<10> 
 Any email address or ip address to whitelist. Email addresses may be specified as foo@example.com or just @example.com to match the whole domain, and IPs may be specified as 1.2.3.4 or just 1.2.3. to match the class C address space.
 	
-B<verbose>
+B<verbose>E<10> 
 Log additional information via Mail::SpamAssassin::Logger
 
 =head1 COPYRIGHT
 
-I<This software is Copyright (c) 2014 by Tamer Rizk.>
-This is free software, licensed under The L<Revised BSD License|http://opensource.org/licenses/BSD-3-Clause>.
+I<Copyright (c) 2014 by Tamer Rizk.>E<10> 
+This is free software, licensed under the L<Revised BSD License|http://opensource.org/licenses/BSD-3-Clause>.
 
 =cut
