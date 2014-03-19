@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Mail-SpamAssassin-Contrib-Plugin-IPFilter,
-version 0.91:
+version 0.92:
 
   Blocks bad MTA behavior using IPTables and Redis.
 

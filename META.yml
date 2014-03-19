@@ -1,7 +1,7 @@
 ---
 abstract: 'Blocks bad MTA behavior using IPTables and Redis.'
 author:
-  - 'Tamer Rizk <trizk@inficron.com>'
+  - 'Tamer Rizk <foss@inficron.com>'
 build_requires:
   Email::Simple: '2.0'
   Test::More: '0.88'
@@ -20,4 +20,4 @@ requires:
   Mail::SpamAssassin: '3.0'
   Math::Round: '0'
   Redis: '1.5'
-version: '0.91'
+version: '0.92'

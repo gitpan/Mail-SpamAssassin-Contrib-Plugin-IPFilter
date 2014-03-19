@@ -11,7 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Blocks bad MTA behavior using IPTables and Redis.",
-  "AUTHOR" => "Tamer Rizk <trizk\@inficron.com>",
+  "AUTHOR" => "Tamer Rizk <foss\@inficron.com>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -31,7 +31,7 @@ my %WriteMakefileArgs = (
     "Email::Simple" => "2.0",
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.91",
+  "VERSION" => "0.92",
   "test" => {
     "TESTS" => "t/*.t"
   }
