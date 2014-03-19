@@ -846,7 +846,7 @@ Mail::SpamAssassin::Contrib::Plugin::IPFilter - Blocks bad MTA behavior using IP
 
 =head1 VERSION
 
-version 0.91
+Version 0.91
 
 =head1 SYNOPSIS
 
@@ -873,7 +873,10 @@ Configuration defaults:
 	admin_email none
         common_hosts gmail.com, google.com, yahoo.com, hotmail.com, live.com
         verbose 0
-	admin_message Your message to $recipient from $email was blocked and your IP address $ip blacklisted due to excessive unsolicited bulk email. To reinstate your ability to send email to $recipient, please reply to $admin using a different off-network email, including the body of this message, with a request for reinstatement.
+	admin_message Your message to $recipient from $email was blocked and your IP address $ip blacklisted 
+	   due to excessive unsolicited bulk email. To reinstate your ability to send email to $recipient, 
+	   please reply to $admin using a different off-network email, including the body of this message, 
+	   with a request for reinstatement.
 
 =head1 DESCRIPTION
 
@@ -883,61 +886,67 @@ Responsible, well-known email hosts (common_hosts) are given special treatment t
 
 IPV6 support is experimental. Future versions may include a database shared by nodes participating in a system similar to a decaying blockchain.
 
-The following options may be used in site-wide (local.cf) configuration files to customize operation.
+The following options may be used in site-wide (local.cf) configuration files to customize operation:
 
-	iptables_bin: The path to iptables binary on your system. 
-	
-	filter_name: The name of the chain that Mail::SpamAssassin::Contrib::Plugin::IPFilter will create to block
-spammers. This will also be used as the file name in /etc/cron.d/. [a-zA-Z0-9_.]
+B<iptables_bin>
+The path to iptables binary on your system. 
 
-	redis_host: The ipv4 address of your Redis server.
-	
-	redis_port: The port that Redis is listening on.
-	
-	redis_auth: The Redis password, if any.
-	
-	redis_key_prefix: The prefix for Redis keys created and used by Mail::SpamAssassin::Contrib::Plugin::IPFilter. ^[a-zA-Z0-9_.]$
-	
-	trigger_score: The score for which Mail::SpamAssassin::Contrib::Plugin::IPFilter will process a spam message. This should be greater than the SpamAssassin required_score.
-	
-	average_score_for_rule: The average spam score for a host required to trigger a rule after trigger_messages>.
-	
-	trigger_messages: The minimum number of spam messages from a given host before a rule is triggered. 
-	
-	trigger_sensitivity: A quantity indicator used to tune penalization for a given host based on how many spam messages were seen for that host. PF = exp(-3*trigger_sensitivity/spamhits)
-	
-	seconds_to_decay_penalty: A frequency indicator used to tune penalization for a given host based on how many spam messages were seen for that host over a time period. PF = exp((-1/10 * lastspam_delta/seconds_to_decay_penalty))
-	
-	expire_rule_seconds: After how long will a block rule expire.
-	
-	expires_multiplier_penalty: A factor used to penalize hosts with longer rule expiration based on the spam of score of the message resulting in a rule, relative to the average spam score required to set the rule. 
-	
-	cache_decay_days: After how long will entries in the cache decay, assuming no spam messages are seen. Note that the cache will decay according to: cumulative_spam_score_for_host* exp(-3*lastspam_delta/cache_decay_secs)
-	
-	common_hosts: Hosts which should not be blacklisted via IPTables rule, and fall back to SpamAssassin blacklist.
-	
-	admin_email: The email address to send blacklist warnings from. If left unconfigured, no warnings will be sent.
+B<ilter_name>
+The name of the chain that Mail::SpamAssassin::Contrib::Plugin::IPFilter will create to block spammers. This will also be used as the file name in /etc/cron.d/. [a-zA-Z0-9_.]
 
-	admin_message: The warning message that will be sent. Paramaters $user, $domain, $ip, $email, $recipient and $admin may be used for templatization.
+B<redis_host>
+The ipv4 address of your Redis server.
 
-	whitelist: Any email address or ip address to whitelist. Email addresses may be specified as foo@example.com or just @example.com to match the whole domain, and IPs may be specified as 1.2.3.4 or just 1.2.3. to match the class C address space.
+B<redis_port>
+The port that Redis is listening on.
+
+B<redis_auth>
+The Redis password, if any.
+
+B<redis_key_prefix>
+The prefix for Redis keys created and used by Mail::SpamAssassin::Contrib::Plugin::IPFilter. ^[a-zA-Z0-9_.]$
+
+B<trigger_score>
+The score for which Mail::SpamAssassin::Contrib::Plugin::IPFilter will process a spam message. This should be greater than the SpamAssassin required_score.
+
+B<average_score_for_rule>
+The average spam score for a host required to trigger a rule after trigger_messages>.
+
+B<trigger_messages>
+The minimum number of spam messages from a given host before a rule is triggered. 
+
+B<trigger_sensitivity>
+A quantity indicator used to tune penalization for a given host based on how many spam messages were seen for that host. PF = exp(-3*trigger_sensitivity/spamhits)
+
+B<seconds_to_decay_penalty>
+A frequency indicator used to tune penalization for a given host based on how many spam messages were seen for that host over a time period. PF = exp((-1/10 * lastspam_delta/seconds_to_decay_penalty))
+
+B<expire_rule_seconds>
+After how long will a block rule expire.
 	
-	verbose: log additional information via Mail::SpamAssassin::Logger
+B<expires_multiplier_penalty>
+A factor used to penalize hosts with longer rule expiration based on the spam of score of the message resulting in a rule, relative to the average spam score required to set the rule. 
 
-=head1 NAME
+B<cache_decay_days>
+After how long will entries in the cache decay, assuming no spam messages are seen. Note that the cache will decay according to: cumulative_spam_score_for_host* exp(-3*lastspam_delta/cache_decay_secs)
 
-Mail::SpamAssassin::Contrib::Plugin::IPFilter - Blocks bad MTA behavior using IPTables and Redis.
+B<common_hosts>
+Hosts which should not be blacklisted via IPTables rule, and fall back to SpamAssassin blacklist.
 
-=head1 AUTHOR
+B<admin_email>
+The email address to send blacklist warnings from. If left unconfigured, no warnings will be sent.
 
-Tamer Rizk <trizk@inficron.com>
+B<admin_message> The warning message that will be sent. Paramaters $user, $domain, $ip, $email, $recipient and $admin may be used for templatization.
 
-=head1 COPYRIGHT AND LICENSE
+B<whitelist>
+Any email address or ip address to whitelist. Email addresses may be specified as foo@example.com or just @example.com to match the whole domain, and IPs may be specified as 1.2.3.4 or just 1.2.3. to match the class C address space.
+	
+B<verbose>
+Log additional information via Mail::SpamAssassin::Logger
 
-This software is Copyright (c) 2014 by Tamer Rizk.
+=head1 COPYRIGHT
 
-This is free software, licensed under:
-
-  The (three-clause) BSD License
+I<This software is Copyright (c) 2014 by Tamer Rizk.>
+This is free software, licensed under The L<Revised BSD License|http://opensource.org/licenses/BSD-3-Clause>.
 
 =cut
