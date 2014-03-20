@@ -49,7 +49,7 @@ use Hash::Util qw(lock_hashref);
 use vars qw($VERSION @ISA);
 my ($Verbose, %Regex);
 
-$VERSION = 0.9.2;
+$VERSION = 0.93;
 
 sub update {
 	my $buf = shift;
@@ -845,7 +845,7 @@ Mail::SpamAssassin::Contrib::Plugin::IPFilter - Blocks bad MTA behavior using IP
 
 =head1 VERSION
 
-0.92
+0.93
 
 =head1 SYNOPSIS
 
@@ -952,7 +952,7 @@ The following options may be used in site-wide (local.cf) configuration files to
 
 =head1 COPYRIGHT
 
-I<Copyright E<copy> 2014 Tamer Rizk, Inficron Inc.>
+I<Copyright E<copy> 2014 - Tamer Rizk, Inficron Inc.>
 
 This is free, open source software, licensed under the L<Revised BSD License|http://opensource.org/licenses/BSD-3-Clause>. Please feel free to use and distribute it accordingly.
 

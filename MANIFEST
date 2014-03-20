@@ -8,7 +8,8 @@ bin/saipf-report
 build
 dist.ini
 doc/index.html
-lib/Mail/SpamAssassin/Contrib/Plugin.bak/IPFilter.pm
+inc/Devel/AssertOS.pm
+inc/Devel/AssertOS/Linux.pm
+inc/Devel/CheckOS.pm
 lib/Mail/SpamAssassin/Contrib/Plugin/IPFilter.pm
-log/report.log
 t/00-full.t
